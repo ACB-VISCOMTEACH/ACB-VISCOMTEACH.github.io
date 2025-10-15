@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VR Sprint</title>
+    <!-- remember that this line is a comment in HTML and the browser ignores it completely -->
+    <!-- *** use these comments in the code to guide you in its use and how you play around with it *** -->
+    <!-- load in the needed libraries, the code that does all of the heavy lifting for us -->
+    <!-- this line of code loads the Javascript file that is the base A-Frame library v1.7.0-->
+    <script src="aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
+    <script src="js/aframe-extras.controls.js"></script> 
+  </head>
+  <body>
+    <!-- the scene contains everything in the VR world-->
+    <a-scene>
+      <!-- assets -->
+      <!-- preload assets such as images and models. add links to all of your assets here-->
+      <!-- you can add assets such as images and 3D models to the assets folder inside the ve-base-vr folder -->
+        <!-- an assets can be referenced locally via 'assets/nameoffile.jpg', this tells the browser to look inside the assets folder and what file to load -->
+      <!-- you will refer to these image assets later via the "id" value you give them -->
+      <a-assets>
+        <!--add links to each of your assets here-->
+        
+        <!--to add an image asset copy and paste the below code between < img /> and change the src to your image and give it a unique id-->
+        <!-- you use this id to reference the image asset later in your code -->
+        <img
+          id="earth"
+          src="assets/nasa-earth.png"
+        />
+         <img
+          id="sky"
+          src="sky1.gif"
+        />
+        <img
+          id="hamilton"
+          src="assets/hamilton.png"
+        />  
+        <img
+          id="moon"
+          src="assets/moon.jpg"
+        />
+        
+         <img
+          id="grass2"
+          src="assets/grass2.jpg"
+        />
+        
+        
+  
+        <img
+             id="grass"
+             src="assets/green-texture-closeup.jpg"
+             />
+        
+        
+        <!-- to add a 3d model asset copy and paste the full <a-asset-item> tag below -->
+        <!-- change the src to your model's file address i.e. 'assets/3dmodel.glb' and give it a unique id-->
+        <!-- you use this id to reference the model asset later in your code -->
+        <!-- Model source: Large Stack of Paper by Jarlan Perez [CC-BY] via Poly Pizza -->
+        <a-asset-item
+          id="paper"
+          src="assets/paperstack.glb"
+        ></a-asset-item> 
+        
+        
+
+      <a-asset-item
+        
+      id="trees"
+        src="assets/low_poly_trees.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="dog"
+        src="assets/dog.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="env1"
+        src="assets/env1.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="env2"
+        src="assets/env2.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="env3"
+        src="assets/env3.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="JapanesePond"
+        src="assets/JapanesePond.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="Sakura"
+        src="assets/SakuraTree.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="Tamagotch"
+        src="assets/tamagotchi_pet_sailor_moon.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="MiniForest"
+        src="assets/stylized_forest_-_scene_may_holiday.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="bridge1"
+        src="assets/bridge1.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="treehouse"
+        src="assets/treehouse.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="hydepark"
+        src="assets/hydepark.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="house1"
+        src="assets/house1.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="house2"
+        src="assets/house2.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="house3"
+        src="assets/house3.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="CuteStand"
+        src="assets/vegetable_market.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="PalmTree"
+        src="assets/palmtree.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="trees2"
+        src="assets/trees2.glb"
+        
+        ></a-asset-item>
+        
+            <a-asset-item
+        
+      id="skycolour"
+        src="assets/skycolour.png"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="trees3"
+        src="assets/trees3.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+   dw     
+      id="trees4"
+        src="assets/trees4.glb"
+        
+        ></a-asset-item>
+         <a-asset-item
+        
+      id="trees5"
+        src="assets/trees5.glb"
+        
+        ></a-asset-item>
+        
+         <a-asset-item
+        
+      id="mountain1"
+        src="assets/mountain1.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="mountain2"
+        src="assets/mountain2.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="house4"
+        src="assets/house4.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="urban1"
+        src="assets/urban1.glb"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="urban2"
+        src="assets/urban2.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="urban3"
+        src="assets/urban3.glb"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="urban4"
+        src="assets/urban4.glb"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="urban5"
+        src="assets/urban5.glb"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="urban6"
+        src="assets/urban6.glb"
+        
+        ></a-asset-item>
+         <a-asset-item
+        
+      id="urban7"
+        src="assets/urban7.glb"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="indoor1"
+        src="assets/indoor1.glb"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="street"
+        src="assets/streettexture.jpg"
+        
+        ></a-asset-item>
+        <a-asset-item
+        
+      id="skyscraper"
+        src="assets/skyscrapers.jpg"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="narrator1"
+        src="assets/narrator1.glb"
+        
+        ></a-asset-item>
+        
+          <a-asset-item
+        
+      id="indoor2"
+        src="assets/indoor2.glb"
+        
+        ></a-asset-item>
+        
+        <a-asset-item
+        
+      id="indoor3"
+        src="assets/indoor3.glb"
+        
+        ></a-asset-item>
+        <a-asset-item> </a-asset-item>
+      </a-assets>
+      
+      
+      
+      
+      
+  <a-entity id="rig"
+          movement-controls
+          position="25 0 25">
+  <a-entity camera
+            position="0 1.6 0"
+            look-controls="pointerLockEnabled: true"></a-entity>
+</a-entity>
+      
+      
+      
+      
+      
+      
+      
+      <!-- to preview this environment in brackets press on the lightning bolt icon to open the html file in the browser -->
+      <!-- you may need to refresh the browser window to see any changes -->
+      
+      <!-- moon -->
+      <!-- this creates a sphere at position 0,0,0 in the virtual environment -->
+      <!-- it textures it with the image with id of "moon" from the preloaded assets section above -->
+      <!-- and gives it a radius of 1 metre -->
+      <a-sphere position="-0.5 4 0" color="#ffffff" radius="0.3"></a-sphere>
+      <!-- below are more types of 3D shapes you can draw you can give them textures, use the src parameter like the sphere examlple, or colours -->
+      <!-- comment them out to see them appear in your environment -->
+      <!-- <a-box position="-3 0 -3" rotation="0 45 0" color="#4CC3D9"></a-box> -->
+      <!-- <a-sphere position="3 0 -3" radius="1.25" color="#EF2D5E"></a-sphere> -->
+      <!-- <a-cylinder position="-3 0 3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
+      <!-- <a-plane position="3 0 3" rotation="0 0 0" width="4" height="4" color="#7BC8A4"></a-plane> -->
+      
+      <!-- image of software engineer Margaret Hamilton -->
+      <!-- here we make a plane and add the png image with an alpha channel as a texture -->
+      <!-- units in a-frame are in metres -->
+      <!-- see the example comment at the end of this page to work out how to get the correct ratio of w/h right for an image -->
+<!-- <a-plane
+        position="-1 0 0"
+        rotation="0 0 0"
+        src="#hamilton"
+        width="1"
+        height="3"
+        material="side: double; transparent:true; alphaTest: 0.5"
+      ></a-plane> 
+      
+      <!-- earth -->
+      <!-- this also uses a plane and adds a texture of the earth to make a ground -->
+      <!-- this plane is rotated 90 degrees on its x (horizontal) axis -->
+       <!-- World 4 -->
+         <a-box
+        position="300, 45,0"
+        rotation="0 0 0"
+        width="5"
+                depth="200"
+        height="100"
+             color="rgba(100, 100, 100, 0.91)"
+               
+                
+                
+                  
+              
+      ></a-box>
+                  <a-text font="kelsonsans" value="World 4" width="6" position="260 2 0" scale="5 5 5" rotation="0 -40 0"></a-text>
+
+      <a-entity gltf-model="#indoor3" position="270 -3 -9" scale="3 3 3" rotation="0 -290 0"></a-entity>
+      <a-entity gltf-model="#narrator1" color="#4cff0b" rotation="7 0 0" position="260 -0.7 2" scale= ".002 .002 .002"  ></a-entity>
+
+            <a-entity gltf-model="#Tamagotch" position="260 2 0" scale="50 50 50" rotation="7 200 0"></a-entity>
+<a-entity gltf-model="#Tamagotch" position="260 0 -2" scale="50 50 50" rotation="7 212 30"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="260 0 -4" scale=" 80 80 80" rotation="7 212 -80"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="263 0 -4" scale=" 80 80 80" rotation="7 135 20"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="259 2 -8" scale=" 100 100 100" rotation="20 10 36"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="260 0 0" scale=" 30 30 30  " rotation="20 150 36"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="258 -1 0" scale=" 50 50 50  " rotation="20 150 -30"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="266 -2 0" scale=" 100 100 100 " rotation="20 150 -30"></a-entity>
+      <a-entity gltf-model="#Tamagotch" position="259 1 1" scale=" 30 30 30 " rotation="20 150 -19"></a-entity>
+
+       <!-- World 3 -->
+   
+      
+      <a-plane
+        position="250 -1.5 -4.4"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        color="#3e3e3e"
+        
+              
+      ></a-plane>
+      
+      <a-box
+        position="250, 45,0"
+        rotation="0 0 0"
+        width="5"
+                depth="200"
+        height="100"
+             color="rgba(100, 100, 100, 0.91)"
+               
+                
+                
+                  
+              
+      ></a-box>
+      
+            <a-text font="kelsonsans" value="World 3" width="6" position="210 2 0" scale="5 5 5" rotation="0 -40 0"></a-text>
+      <a-entity gltf-model="#indoor3" position="220 -3 -9" scale="3 3 3" rotation="0 -290 0"></a-entity>
+      <a-entity gltf-model="#narrator1" color="#4cff0b" rotation="7 200 0" position="210 -0.7 2" scale= ".002 .002 .002"  ></a-entity>
+
+      
+       <!-- World 2 -->
+      
+      <a-plane
+        position="0 -1.5 -4.4"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        src="#grass2"
+        material="side: double; repeat: 5 5; transparent:true; alphaTest: 0.5"
+              
+      ></a-plane>
+         <a-box
+        position="100,0,0"
+        rotation="0 0 0"
+        width="5"
+                depth="200"
+        height="200"
+                src="#grass2"
+                
+                
+                  
+              
+      >
+           <!-- world 2-->
+      </a-box>
+            <a-plane
+        position="150 -1.5 -4.4"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        color="#3e3e3e"
+        
+              
+      ></a-plane>
+      
+      <a-box
+        position="200, 45,0"
+        rotation="0 0 0"
+        width="5"
+                depth="200"
+        height="100"
+             color="rgba(100, 100, 100, 0.91)"
+               
+                
+                
+                  
+              
+      ></a-box>
+      
+    
+      <a-entity gltf-model="#urban1" position="150 -1 -50" scale="2 2 2" rotation="0 -50 0"></a-entity>
+            <a-entity gltf-model="#urban2" position="170 0 -100" scale="13 13 13 " rotation="0 15 0"></a-entity>
+      <a-entity gltf-model="#urban3" position="150 -1 60" scale="8 8 8 " rotation="0 250 0"></a-entity>
+      <a-entity gltf-model="#urban4" position="140 0 190" scale="0.1 0.1 0.1 " rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#urban5" position="130 30 -100" scale="2 2 2" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#urban6" position="150 -1 -20" scale="2 2 2" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#urban7" position="150 -1 0" scale="2 2 2" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#indoor1" position="110 -1 0" scale="2 2 2" rotation="0 0 0"></a-entity>
+      <a-text font="kelsonsans" value="World 2" width="6" position="110 2 0" scale="5 5 5" rotation="0 -40 0"></a-text>
+      <a-entity gltf-model="#narrator1" color="#4cff0b" rotation="7 -80 0" position="119 -0.7 2" scale= ".002 .002 .002"  ></a-entity>
+
+      
+      <!--- <a-entity geometry="primitive: plane; width: 100"
+          material="src: grass2.jpg; repeat: 100 20"></a-entity>
+
+      <!-- World 1 -->
+      <!-- see the Canvas tutorial for a range of fonts easily available in A-Frame -->
+      <a-text font="kelsonsans" value="Shu Babes" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+      
+      <!-- add a 3D model -->
+      <!-- this model was sourced from sketchfab https://sketchfab.com/feed -->
+      <!-- if you source models, remember to search for and use low poly models -->
+      <!-- to get the right scale and position I just played around with the values! -->
+      
+      <a-entity gltf-model="#Tamagotch" position="0 0 0" scale="10 10 10"></a-entity>
+      
+      <!---a-entity gltf-model="#env1" position="-10 -1 0" scale="2 2 2"></!---a-entity --->
+
+      <a-entity gltf-model="#Sakura" position="-20 3 0" scale="6 6 6"></a-entity>
+            <a-entity gltf-model="#Sakura" position="-40 4 0" scale="7 7 7"></a-entity>
+
+      <a-entity gltf-model="#env2" position="60 -2 -10" scale="3 3 3" rotation="0 -90 0" ></a-entity>
+      <a-entity gltf-model="#MiniForest" position="-10 -1 30" scale="3 3 3"></a-entity>
+      <a-entity gltf-model="#house2" position="0 -2 0" scale=".2 .2 .2" rotation="0 -150 0" ></a-entity>
+      <a-entity gltf-model="#house1" position="-50 -2 -10" scale=".7 .7 .7" rotation="0 -20 0" ></a-entity>
+      <a-entity gltf-model="#house3" position="25 -3 45" scale="2 2 2" rotation="0 -70 0" ></a-entity>
+      <a-entity gltf-model="#PalmTree" position="70 10 0" scale="3 3 3" rotation="0 -90 0" ></a-entity>
+      <a-entity gltf-model="#house5" position="-50 10 -10" scale=".07 .07 .07" rotation="0 -20 0" ></a-entity>
+      <a-entity gltf-model="#house2" position="50 -2 -30" scale=".2 .2 .2" rotation="0 0 0" ></a-entity>
+      <a-entity gltf-model="#house2" position="6 -2 -40" scale=".15 .15 .15" rotation="0 40 0" ></a-entity>
+\
+      <a-entity gltf-model="#treehouse" position="-30 -2 -30" scale=".5 .5 .5"></a-entity>
+      <a-entity gltf-model="#JapanesePond" rotation="0 -190 0" position="-40 -7 30" scale= "4 4 4"  ></a-entity>
+      <a-entity gltf-model="#mountain2" color="#4cff0b" rotation="0 100 0" position="-150 -4 0" scale= "50 50 50"  ></a-entity>
+      <a-entity gltf-model="#trees2" color="#4cff0b" rotation="7 20 0" position="-150 20 0" scale= "6 6 6"  ></a-entity>
+      <a-entity gltf-model="#trees3" color="#4cff0b" rotation="7 20 0" position="-100 2 0" scale= "1 1 1"  ></a-entity>
+      <a-entity gltf-model="#trees3" color="#4cff0b" rotation="7 90 0" position="-100 2 20" scale= "2 2 2"  ></a-entity>
+      <a-entity gltf-model="#trees3" color="#4cff0b" rotation="7 90 0" position="-80 2 10" scale= "2 2 2"  ></a-entity>
+      <a-entity gltf-model="#trees4" color="#4cff0b" rotation="7 90 0" position="-80 2 10" scale= "10 10 10 "  ></a-entity>
+      <a-entity gltf-model="#narrator1" color="#4cff0b" rotation="7 90 0" position="-1 -1.5 0 " scale= ".002 .002 .002"  ></a-entity>
+      <a-entity gltf-model="#trees3" color="#4cff0b" rotation="7 0 0" position="-20 2 70" scale= "2 2 2"  ></a-entity>
+      <a-entity gltf-model="#trees3" color="#4cff0b" rotation="7 0 0" position="-40 2 70" scale= "2 2 2"  ></a-entity>
+      <a-entity gltf-model="#trees3" color="#4cff0b" rotation="7 0 0" position="-60 2 60" scale= "2 2 2"  ></a-entity>
+
+<a-entity  light="type: ambient; color: rgba(255, 235, 165, 0.81)">  </a-entity>
+    
+      <!-- sky adds a background image of colour to the entire scene -->
+      <!-- https://aframe.io/docs/1.4.0/primitives/a-sky.html -->
+      
+     
+      
+<a-sky color="#d4edfd"></a-sky>
+      
+      
+      
+     </a-scene>
+    
+  </body>
+</html>
+
+<!-- 
+image dimensions in aframe are in metres
+to work out image proportions use the following
+calculation. i.e. my image of Margaret Hamilton
+image width = 227, height = 690
+aspect ratio = w/h = 227/690 = 0.33
+assuming 227 px = 1 m
+expected width of image in VR = 1 m
+width of image in VR = 1/0.33 = 3 m 
+Otherwise you can just approximate the ratio : )
+-->
